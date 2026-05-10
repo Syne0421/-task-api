@@ -53,4 +53,26 @@ public class TaskController {
         // DBに保存して、その結果を返す
         return repository.save(task);
     }
+
+    /**
+     * タスク削除API
+     * DELETE /tasks/{id}
+     */
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
+
+    /**
+     * タスク更新API
+     * PUT /tasks/{id}
+     */
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable Long id, @RequestBody Task task) {
+        Task existing = repository.findById(id).orElseThrow();
+        existing.setTitle(task.getTitle());
+        existing.setStatus(task.getStatus());
+        return repository.save(existing);
+    }
+
 }

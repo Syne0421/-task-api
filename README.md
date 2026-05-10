@@ -19,6 +19,8 @@
 |---|---|---|
 | GET | /tasks | タスク一覧取得 |
 | POST | /tasks | タスク追加 |
+| PUT | /tasks/{id} | タスク更新 |
+| DELETE | /tasks/{id} | タスク削除 |
 
 ## 実装内容
 
